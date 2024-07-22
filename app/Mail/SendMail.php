@@ -31,7 +31,7 @@ class SendMail extends Mailable
      * @return $this
      */
     public function build()
-    {  // customer_mail is the name of template
+    {  
         return $this->subject($this->title) ->view('customer_mail');
     }
 }

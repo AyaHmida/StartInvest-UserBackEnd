@@ -145,7 +145,7 @@ class PaymentController extends Controller
 
         $investorsAndDates = $transactions->map(function ($transaction) {
             return [
-                'investor_name' => optional($transaction->investisseur)->name, // Nom de l'investisseur
+                'investor_name' => optional($transaction->investisseur)->name, 
                 'transaction_date' => $transaction->created_at->format('Y-m-d H:i:s'),
             ];
         });

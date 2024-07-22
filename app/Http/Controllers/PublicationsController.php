@@ -88,7 +88,6 @@ class PublicationsController extends Controller
     public function userProfilePublicationsId($userId)
     {
         try {
-            // Récupérer l'utilisateur authentifié
             // $authenticatedUser = Auth::user();
 
             // Récupérer les publications de l'utilisateur spécifié par son ID
@@ -96,7 +95,6 @@ class PublicationsController extends Controller
                 ->with('user')
                 ->get();
 
-            // Pour chaque publication, récupérer le nombre de likes
             foreach ($publications as $publication) {
                 $likes = Like::where('post_id', $publication->id)
                     ->where('like', 1)
@@ -108,14 +106,12 @@ class PublicationsController extends Controller
                 $publication->likes = $likes;
             }
 
-            // Préparer les données à retourner
             $data = [
                 'status' => 200,
                 'publications' => $publications,
             ];
             return response()->json($data, 200);
         } catch (\Exception $e) {
-            // Gérer les erreurs
             $errorData = [
                 'status' => 500,
                 'error' => 'Internal Server Error',
@@ -209,7 +205,6 @@ class PublicationsController extends Controller
             $like->save();
             $operation = 'liked';
 
-            // Envoyer la notification
             $utilisateursANotifier = User::where('id', '!=', Auth::id())->get();
             Notification::send($utilisateursANotifier, new LikedDBNotify($like, $operation));
 

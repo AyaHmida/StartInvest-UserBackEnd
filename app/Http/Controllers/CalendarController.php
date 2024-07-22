@@ -49,12 +49,12 @@ class CalendarController extends Controller
 
         if ($userId) {
             $tasksCreatedByUser = Task::where('created_by', $userId)
-                ->where('etat', 'accepter') // Ajouter cette condition pour filtrer par état
+                ->where('etat', 'accepter') 
                 ->with('createdBy', 'assignedTo')
                 ->get();
 
             $tasksAssignedToUser = Task::where('assigned_to', $userId)
-                ->where('etat', 'accepter') // Ajouter cette condition pour filtrer par état
+                ->where('etat', 'accepter') 
                 ->with('createdBy', 'assignedTo')
                 ->get();
 
@@ -71,7 +71,7 @@ class CalendarController extends Controller
                     'description' => $task->description,
                     'created_by' => $task->created_by,
                     'assigned_to' => $task->assigned_to,
-                    'etat' => $task->etat, // Ajouter l'état de la tâche
+                    'etat' => $task->etat, 
                 ];
 
                 $tasksData[] = $taskData;

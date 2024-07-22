@@ -60,7 +60,6 @@ class NotificationController extends Controller
         // Fusionner les IDs de notifications aimées et de notifications de suivi
         $notificationIds = array_merge($notificationIds, $followNotificationIds,$MessageNotificationIds,$ClanderNotificationIds);
 
-        // Supprimer les doublons des IDs de notifications
         $notificationIds = array_unique($notificationIds);
 
         $notifications = DB::table('notifications')

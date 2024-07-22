@@ -50,19 +50,5 @@ class LikedDBNotify extends Notification
 
         ];
     }
-    // public function toBoradcast($notifiable){
-    //     $message='';
-    //     if ($this->operation =='liked'){
-    //         $message ="a amie ce publication";
-    //     }
-    //     return new BroadcastMessage([
-    //         "publication"=> $this->likes->post_id,
-    //         "title"=> $message,
-    //         'user'=>Auth::user()->name,
-    //         'image'=>Auth::user()->image,
-    //         'operation' => $this->operation,
-
-
-    //     ]);
-    // }
+    
 }

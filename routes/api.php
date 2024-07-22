@@ -37,7 +37,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/sendPasswordResetLink', [PasswordResetRequestController::class, 'sendEmail']);
 
-    // Route::post('/resetPassword',[ChangePasswordController::class,'passwordResetProcess']);
     Route::post('/reset-password', [PasswordResetController::class, 'reset']);
 
     Route::get('/user', [AuthController::class, 'user']);
@@ -62,8 +61,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::get('/publicationsUser', [PublicationsController::class, 'userProfilePublications']);
     Route::get('/userProfilePublicationsId/{id}', [PublicationsController::class, 'userProfilePublicationsId']);
     Route::get('/publications/{id}', [PublicationsController::class, 'show']);
-    // Route::get('/publications/{id}/edit', [PublicationsController::class, 'edit']);
-    // Route::put('/publications/{id}/edit', [PublicationsController::class, 'update']);
     Route::delete('/publications/{id}/', [PublicationsController::class, 'destroy']);
 
     Route::get('/nbposts', [PublicationsController::class, 'nbPosts']);
